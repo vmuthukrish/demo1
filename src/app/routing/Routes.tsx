@@ -13,6 +13,7 @@ import {PrivateRoutes} from './PrivateRoutes'
 import {Logout, AuthPage} from '../modules/auth'
 import {ErrorsPage} from '../modules/errors/ErrorsPage'
 import {RootState} from '../../setup'
+import { TreeData } from '../modules/Tree/TreeData'
 
 const Routes: FC = () => {
   const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
@@ -30,6 +31,8 @@ const Routes: FC = () => {
       )}
 
       <Route path='/error' component={ErrorsPage} />
+
+      <Route path='/sample' component={TreeData} />
       <Route path='/logout' component={Logout} />
 
       {!isAuthorized ? (
