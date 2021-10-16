@@ -65,8 +65,8 @@ Object.keys(datas).forEach((key) => {
     title: 'Action',
     key: 'action',
     render: (text:any, record:any) => (
-      <Button size="middle" onClick={()=>alert(record.name)}>
-       nvite {record.name}
+      <Button size="middle" type="primary" onClick={()=>alert(record.name)}>
+       Delete {record.name}
       </Button>
     ),
   },
@@ -86,7 +86,11 @@ const rowSelection = {
   },
   onSelectAll: (selected:any, selectedRows:any, changeRows:any) => {
     console.log(selected, selectedRows, changeRows);
-  }
+  },
+  getCheckboxProps: (record: any) => ({
+    disabled: record.position === 'Manager', // Column configuration not to be checked
+    name: record.name,
+  }),
 };
 
 const TreeData: React.FC = () => {
